@@ -1,0 +1,131 @@
+<!DOCTYPE html><html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Asisten Cerdas</title><style>
+body{
+    font-family: Arial, sans-serif;
+    background:#f2f2f2;
+    margin:0;
+    padding:20px;
+}
+
+h1{
+    text-align:center;
+    color:#2E8B57;
+}
+
+#chat{
+    background:white;
+    height:400px;
+    overflow-y:auto;
+    padding:10px;
+    border-radius:10px;
+    margin-bottom:10px;
+}
+
+.kamu{
+    color:#003399;
+    font-weight:bold;
+    margin-top:10px;
+}
+
+.ai{
+    color:#006633;
+    margin-bottom:10px;
+}
+
+input{
+    width:75%;
+    padding:10px;
+}
+
+button{
+    padding:10px;
+    background:#2E8B57;
+    color:white;
+    border:none;
+    cursor:pointer;
+}
+</style></head><body><h1>🤖 Asisten Cerdas</h1><div id="chat"></div><input type="text" id="pesan" placeholder="Tulis pertanyaan...">
+<button onclick="kirim()">Kirim</button><script>
+
+function jawab(pertanyaan){
+
+let tanya = pertanyaan.toLowerCase().trim();
+
+if(tanya.includes("halo") || tanya.includes("hai") || tanya.includes("assalamualaikum")){
+return `👋 Halo! Selamat datang di Asisten Cerdas buatan sendiri.
+Saya siap menjawab pertanyaanmu dengan penjelasan yang panjang, rinci, dan mudah dimengerti.`;
+}
+
+else if(tanya.includes("siapa kamu") || tanya.includes("nama kamu")){
+return `🤖 Saya adalah Asisten Cerdas AI buatan sendiri.
+Cara kerja saya mirip Dola atau ChatGPT.`;
+}
+
+else if(tanya.includes("apa itu ai") || tanya.includes("kecerdasan buatan")){
+return `🤖 Kecerdasan Buatan (AI) adalah program komputer yang dirancang agar bisa berpikir, belajar, dan memecahkan masalah seperti manusia.`;
+}
+
+else if(tanya.includes("kalimat efektif")){
+return `📚 Kalimat efektif adalah kalimat yang jelas, singkat, padat, dan tidak menimbulkan salah tafsir.`;
+}
+
+else if(tanya.includes("majas")){
+return `📚 Majas adalah gaya bahasa untuk memperindah kalimat.
+• Perumpamaan
+• Personifikasi
+• Hiperbola
+• Metafora`;
+}
+
+else if(tanya.includes("rumus luas")){
+return `📐 Rumus luas:
+• Persegi = sisi × sisi
+• Persegi Panjang = panjang × lebar
+• Segitiga = ½ × alas × tinggi
+• Lingkaran = 3,14 × r × r`;
+}
+
+else if(tanya.includes("siklus air")){
+return `💧 Siklus air:
+1. Penguapan
+2. Pengembunan
+3. Hujan
+4. Aliran air kembali ke laut`;
+}
+
+else if(tanya.includes("proklamasi") || tanya.includes("kemerdekaan")){
+return `📜 Proklamasi Kemerdekaan Indonesia
+📅 17 Agustus 1945
+🗣 Dibacakan oleh Ir. Soekarno dan Drs. Moh. Hatta`;
+}
+
+else{
+return `ℹ️ Pertanyaanmu menarik!
+Saya belum punya jawaban khusus ini, tapi kamu bisa tanya soal pelajaran, sejarah, rumus, atau hal umum lainnya.`;
+}
+}
+
+function kirim(){
+
+let pesan = document.getElementById("pesan").value;
+
+if(pesan.trim() === "") return;
+
+let chat = document.getElementById("chat");
+
+chat.innerHTML += `<div class="kamu">Kamu: ${pesan}</div>`;
+
+let hasil = jawab(pesan);
+
+chat.innerHTML += `<div class="ai">Asisten: ${hasil}</div>`;
+
+chat.scrollTop = chat.scrollHeight;
+
+document.getElementById("pesan").value="";
+}
+
+</script></body>
+  </html>
